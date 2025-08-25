@@ -28,4 +28,5 @@
       # add more Git config lines if needed
     };
   };
+  programs.zsh.enable = true;
 }
