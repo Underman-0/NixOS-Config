@@ -12,6 +12,10 @@
     addKeysToAgent = "yes";
   };
 
+  programs.zsh.prezto = {
+    enable = true;
+    prompt.theme = "pure";
+  };
   programs.home-manager.enable = true;
   programs.firefox.enable = true;
   programs.nh = {
@@ -27,7 +31,6 @@
       init.defaultBranch = "main";
       user.email = "gjw4492@gmail.com";
       user.name = "Underman-0";
-      # add more Git config lines if needed
     };
   };
 }
