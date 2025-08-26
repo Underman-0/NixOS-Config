@@ -4,6 +4,8 @@
   home.username = "underman";
   home.homeDirectory = "/home/underman";
 
+  programs.zsh.enable = true;
+
   services.ssh-agent.enable = true;
   programs.ssh = {
     enable = true;
@@ -28,5 +30,4 @@
       # add more Git config lines if needed
     };
   };
-  programs.zsh.enable = true;
 }

@@ -10,6 +10,9 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  
+  # Enable Bluetooth
+  hardware.bluetooth.enable = true;
 
   # Enable flakes permanently
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

@@ -3,6 +3,10 @@
 {
   isNormalUser = true;
   description = "Gabe Welsh";
+
+  shell = pkgs.zsh;
+  ignoreShellProgramCheck = true; # enabled in home.nix
+
   extraGroups = [ "networkmanager" "wheel" ];
   packages = with pkgs; [
     vesktop
