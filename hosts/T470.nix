@@ -4,8 +4,8 @@
   imports =
     [ 
       (modulesPath + "/installer/scan/not-detected.nix")
-      "${root}/modules/shared-pkgs.nix"
       "${root}/modules/system.nix"
+      "${root}/modules/shared-pkgs.nix"
       "${root}/modules/initialize-users.nix"
     ];
   networking.hostName = "T470";

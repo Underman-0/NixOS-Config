@@ -7,6 +7,15 @@ in {
   home.username = "underman";
   home.homeDirectory = "/home/underman";
 
+  nixpkgs.config.allowUnfree = true;
+  home.packages = with pkgs; [
+    vesktop
+    ringracers
+    osu-lazer-bin
+    godot
+    jetbrains.pycharm-community-bin
+  ];
+
   imports = [
     ./home-modules/chromium.nix
     ./home-modules/firefox.nix
