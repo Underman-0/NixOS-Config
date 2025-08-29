@@ -18,6 +18,7 @@
         └── home.nix             # home-manager configuration
 ```
 
+TODO:
 - figure out ssh key syncing
 - configure applications in nix:
   - user:

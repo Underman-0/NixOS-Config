@@ -7,6 +7,7 @@
       "${root}/modules/system.nix"
       "${root}/modules/shared-pkgs.nix"
       "${root}/modules/initialize-users.nix"
+      "${root}/modules/virtualbox.nix"
     ];
   networking.hostName = "T470";
 
