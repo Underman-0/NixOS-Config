@@ -7,9 +7,21 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      home-manager,
+      plasma-manager,
+      ...
+    }:
   let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
@@ -23,12 +35,18 @@
       };
       modules = [
         ./hosts/T470.nix
-        inputs.home-manager.nixosModules.default
+        inputs.home-manager.nixosModules.home-manager {
+            home-manager.sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
+        }
       ];
     };
     homeConfigurations."underman" = inputs.home-manager.lib.homeManagerConfiguration {
-      inherit pkgs;
-      modules = [ ./users/underman/home.nix ];
+      pkgs = import nixpkgs { inherit system; };
+
+      modules = [
+        inputs.plasma-manager.homeManagerModules.plasma-manager
+        ./users/underman/home.nix
+      ];
     };
   };
 }

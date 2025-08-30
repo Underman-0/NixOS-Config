@@ -1,4 +1,4 @@
-{ config, home-manager, pkgs, root, ... }:
+{ config, home-manager, plasma-manager, pkgs, root, ... }:
 
 {
   # initialize user(s) (base NixOS)

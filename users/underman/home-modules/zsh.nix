@@ -7,6 +7,8 @@
     shellAliases = {
       ll = "ls -l";
       ".." = "cd ..";
+      off = "poweroff";
+      
     };
     prezto = {
       enable = true;
