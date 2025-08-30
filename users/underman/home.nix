@@ -9,7 +9,7 @@ in {
 
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
-    vesktop
+    # vesktop
     ringracers
     osu-lazer-bin
     godot
