@@ -8,7 +8,9 @@
       ll = "ls -l";
       ".." = "cd ..";
       off = "poweroff";
-      
+      ga = "git add .";
+      gp = "git push";
+      gc = "git commit";
     };
     prezto = {
       enable = true;

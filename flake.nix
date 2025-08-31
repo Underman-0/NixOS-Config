@@ -36,7 +36,7 @@
       modules = [
         ./hosts/T470.nix
         inputs.home-manager.nixosModules.home-manager {
-            home-manager.sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
+          home-manager.sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
         }
       ];
     };

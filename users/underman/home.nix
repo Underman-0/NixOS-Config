@@ -7,6 +7,8 @@
 
   nixpkgs.config.allowUnfree = true;
   home.packages = with pkgs; [
+    kdePackages.kcalc
+    kdePackages.kcolorchooser
     vesktop
     ringracers
     osu-lazer-bin
