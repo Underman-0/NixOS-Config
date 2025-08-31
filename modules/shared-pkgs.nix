@@ -5,6 +5,7 @@
     fastfetch
     git
     htop
+    libreoffice
     neovim
     tree
     vscodium
