@@ -14,6 +14,7 @@
       "nos" = "nh os switch";
       "nosd" = "nh os switch --dry";
       "nhs" = "nh home switch";
+      "sysup" = "nh os switch --update";
     };
     prezto = {
       enable = true;
