@@ -12,6 +12,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+    stylix = {
+      url = "github:nix-community/stylix/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -20,6 +24,7 @@
       nixpkgs,
       home-manager,
       plasma-manager,
+      stylix,
       ...
     }:
   let
@@ -34,16 +39,18 @@
         root = self;
       };
       modules = [
-        ./hosts/T470.nix
+        inputs.stylix.nixosModules.stylix
         inputs.home-manager.nixosModules.home-manager {
           home-manager.sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
         }
+        ./hosts/T470.nix
       ];
     };
     homeConfigurations."underman" = inputs.home-manager.lib.homeManagerConfiguration {
       pkgs = import nixpkgs { inherit system; };
 
       modules = [
+        inputs.stylix.homeModules.stylix
         inputs.plasma-manager.homeManagerModules.plasma-manager
         ./users/underman/home.nix
       ];

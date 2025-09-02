@@ -1,4 +1,4 @@
-{ config, lib, pkgs, modulesPath, home-manager, plasma-manager, root, ... }:
+{ config, lib, pkgs, modulesPath, home-manager, plasma-manager, stylix, root, ... }:
 
 {
   imports =
@@ -7,13 +7,12 @@
       "${root}/modules/system.nix"
       "${root}/modules/shared-pkgs.nix"
       "${root}/modules/virtualbox.nix"
-
       "${root}/modules/initialize-users.nix"
     ];
   networking.hostName = "T470";
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "vboxdrv" ];
   boot.initrd.kernelModules = [ ];
-  # boot.kernelModules = [ "kvm-intel" ];
+  # boot.kernelModules = [ "kvQQm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =

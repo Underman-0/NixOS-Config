@@ -1,4 +1,4 @@
-{ config, pkgs, home-manager, plasma-manager, root, ... }:
+{ config, pkgs, home-manager, plasma-manager, stylix, root, ... }:
 # home-manager.users.underman.*
 {
   home.stateVersion = "25.05";
@@ -6,6 +6,7 @@
   home.homeDirectory = "/home/underman";
 
   nixpkgs.config.allowUnfree = true;
+  
   home.packages = with pkgs; [
     kdePackages.kcalc
     kdePackages.kcolorchooser
@@ -15,7 +16,6 @@
     godot
     jetbrains.pycharm-community-bin
   ];
-
 
   imports = [
     ./home-modules/chromium.nix

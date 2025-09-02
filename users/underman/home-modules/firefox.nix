@@ -1,4 +1,6 @@
-{config, pkgs, ...}:
+{config, pkgs, stylix, ...}:
 {
-  programs.firefox.enable = true;
+  programs.firefox = {
+    enable = true;
+  };
 }

@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, stylix, ... }:
 {
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -8,13 +8,22 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  stylix = {
+    enable = true;
+    autoEnable = true;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
+  };
+
+  # Enable the docker daemon
+  virtualisation.docker.enable = true;
+  
+  # Disallow unfree packages at the system level (users may enable them)
+  nixpkgs.config.allowUnfree = false;
   
   # Enable Bluetooth
   hardware.bluetooth.enable = true;
 
-  # Enable flakes permanently
+  # Enable flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Bootloader.
@@ -49,7 +58,7 @@
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
-
+  
   # Enable sddm desktop manager
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;

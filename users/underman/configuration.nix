@@ -7,7 +7,7 @@
   shell = pkgs.zsh;
   ignoreShellProgramCheck = true; # enabled in home configuration
 
-  extraGroups = [ "networkmanager" "wheel" ];
+  extraGroups = [ "networkmanager" "wheel" "mysql" "docker" ];
 
   openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKpVEyR0otMDInllEUp2iJ2zL9lagzTQWux33SUGh72N underman@T470" #personal git
