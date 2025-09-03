@@ -7,6 +7,8 @@
 
   nixpkgs.config.allowUnfree = true;
   
+  stylix.targets.alacritty.enable = true;
+
   home.packages = with pkgs; [
     kdePackages.kcalc
     kdePackages.kcolorchooser

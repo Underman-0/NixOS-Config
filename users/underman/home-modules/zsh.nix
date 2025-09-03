@@ -9,8 +9,9 @@
       ".." = "cd ..";
       "off" = "poweroff";
       "ga" = "git add .";
-      "gp" = "git push";
       "gc" = "git commit";
+      "gp" = "git push";
+      "gs" = "git status";
       "nos" = "nh os switch";
       "nosd" = "nh os switch --dry";
       "nhs" = "nh home switch";

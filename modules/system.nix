@@ -10,8 +10,15 @@
 
   stylix = {
     enable = true;
-    autoEnable = true;
+    autoEnable = false;
+
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
+  };
+
+  # myshitql
+  services.mysql = {
+    enable = true;
+    package = pkgs.mariadb;
   };
 
   # Enable the docker daemon
