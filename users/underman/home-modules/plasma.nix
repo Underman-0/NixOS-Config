@@ -221,7 +221,7 @@
       "plasmashell"."cycle-panels" = "Meta+Alt+P";
       "plasmashell"."cycleNextAction" = "none,,Next History Item";
       "plasmashell"."cyclePrevAction" = "none,,Previous History Item";
-      "plasmashell"."manage activities" = "none,Meta+Q,Show Activity Switcher";
+      "plasmashell"."manage activities" = "none,,Show Activity Switcher";
       "plasmashell"."next activity" = "Meta+A,none,Walk through activities";
       "plasmashell"."previous activity" = "Meta+Shift+A,none,Walk through activities (Reverse)";
       "plasmashell"."repeat_action" = "none,,Manually Invoke Action on Current Clipboard";
@@ -295,7 +295,7 @@
       "spectaclerc"."VideoSave"."translatedScreencastsFolder" = "Screencasts";
     };
     dataFile = {
-
+      
     };
   };
 }
