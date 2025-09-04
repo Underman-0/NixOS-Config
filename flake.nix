@@ -34,24 +34,19 @@
   let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
-    specialArgs = { inherit inputs self; };
   in
   {
     nixosConfigurations.T470 = nixpkgs.lib.nixosSystem {
       inherit system;
-      specialArgs = specialArgs;
+      specialArgs = {
+        inherit inputs;
+        root = self;
+      };
       modules = [
         inputs.stylix.nixosModules.stylix
         inputs.home-manager.nixosModules.home-manager {
           home-manager.sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
         }
-        ({ self, system, ... }: {
-          environment.systemPackages = with self.inputs.nix-alien.packages.${system}; [
-            nix-alien
-          ];
-          # Optional, needed for `nix-alien-ld`
-          programs.nix-ld.enable = true;
-        })
         ./hosts/T470.nix
       ];
     };
