@@ -16,6 +16,10 @@
       url = "github:nix-community/stylix/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-alien = {
+      url = "github:thiagokokada/nix-alien";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -30,19 +34,24 @@
   let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
+    specialArgs = { inherit inputs self; };
   in
   {
     nixosConfigurations.T470 = nixpkgs.lib.nixosSystem {
       inherit system;
-      specialArgs = {
-        inherit inputs;
-        root = self;
-      };
+      specialArgs = specialArgs;
       modules = [
         inputs.stylix.nixosModules.stylix
         inputs.home-manager.nixosModules.home-manager {
           home-manager.sharedModules = [ plasma-manager.homeManagerModules.plasma-manager ];
         }
+        ({ self, system, ... }: {
+          environment.systemPackages = with self.inputs.nix-alien.packages.${system}; [
+            nix-alien
+          ];
+          # Optional, needed for `nix-alien-ld`
+          programs.nix-ld.enable = true;
+        })
         ./hosts/T470.nix
       ];
     };

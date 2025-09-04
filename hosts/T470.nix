@@ -12,7 +12,8 @@
   networking.hostName = "T470";
   boot.initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "vboxdrv" ];
   boot.initrd.kernelModules = [ ];
-  # boot.kernelModules = [ "kvQQm-intel" ];
+  boot.blacklistedKernelModules = [ "kvm_intel" ];
+  boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =

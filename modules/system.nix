@@ -1,4 +1,4 @@
-{ config, pkgs, stylix, ... }:
+{ config, pkgs, stylix, inputs, ... }:
 {
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
@@ -11,15 +11,14 @@
   stylix = {
     enable = true;
     autoEnable = false;
-
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
   };
 
-  # myshitql
-  services.mysql = {
-    enable = true;
-    package = pkgs.mariadb;
-  };
+  # # myshitql
+  # services.mysql = {
+  #   enable = true;
+  #   package = pkgs.mariadb;
+  # };
 
   # Enable the docker daemon
   virtualisation.docker.enable = true;

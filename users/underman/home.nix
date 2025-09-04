@@ -15,8 +15,11 @@
     vesktop
     ringracers
     osu-lazer-bin
+    orca-slicer
     godot
     jetbrains.pycharm-community-bin
+    winetricks
+    wineWowPackages.stable
   ];
 
   imports = [
