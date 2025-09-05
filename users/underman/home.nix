@@ -10,6 +10,7 @@
   stylix.targets.alacritty.enable = true;
 
   home.packages = with pkgs; [
+    github-desktop
     kdePackages.kcalc
     kdePackages.kcolorchooser
     vesktop
